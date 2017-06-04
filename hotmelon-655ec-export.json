@@ -1,0 +1,25 @@
+{
+  "title-author" : {
+    "abstrction" : "abstraction...",
+    "authors" : [ "Donald Trump", "Hillary Clinton" ],
+    "chapters" : [ {
+      "sections" : [ {
+        "content" : "",
+        "figures" : [ "https://excellenceassured.com/wp-content/uploads/2015/08/3-Steps-in-NLP-Training-e1440689432324.png" ],
+        "keywords" : [ "Melon", "Love", "Peace" ],
+        "subsections" : [ {
+          "keywords" : [ "Melon" ]
+        } ],
+        "tables" : {
+          "td" : [ [ "Value to header1", "Value to header2" ], [ "Value to header1", "Value to header2" ] ],
+          "th" : [ "Header1", "Header2" ]
+        },
+        "title" : "Background"
+      } ],
+      "title" : "Chapter 1"
+    } ],
+    "date" : "2017-06-03",
+    "subtitle" : "Angel Hack",
+    "title" : "Hot Melon"
+  }
+}
