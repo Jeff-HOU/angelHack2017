@@ -8,7 +8,8 @@ file = sys.argv[3] # output file path
 name = sys.argv[2] # which article to convert
 
 firebase = firebase.FirebaseApplication('https://hotmelon-655ec.firebaseio.com', None)
-ppt = '/ppt'
+tmp_ppt = name+'-ppt'
+ppt = '/'+name+'-ppt'
 
 '''
 put_content = ''
@@ -33,7 +34,7 @@ with urllib.request.urlopen(link) as url:
     bgcolor = data["style"]["backgroundColor"]
     color = data["style"]["color"]
     colorPic = "https://34.208.199.223/color/"
-    firebase.put('/', 'ppt', data = '')
+    firebase.put('/', tmp_ppt, data = '')
     firebase.put(ppt+'/'+str(slideCount), "bg", data = bgcolor)
     firebase.put(ppt+'/'+str(slideCount), "color", data = color)
     slideCount += 1
@@ -129,7 +130,7 @@ with urllib.request.urlopen(link) as url:
                         f.write("* "+'<span style="color: '+color+'">'+val+'</span>'+"\n\n")
                         keyword.append(val)
                         #firebase.put(ppt+'/'+str(slideCount),str(elementCount)+"keyword", data = val)
-                        elementCount += 1
+                        #elementCount += 1
                         if (k % 10 == 0 and k > 0):
                             f.write("---\n\n")
                             firebase.put(ppt+'/'+str(slideCount),str(elementCount)+"keyword", data = ', '.join(keyword))
@@ -144,7 +145,7 @@ with urllib.request.urlopen(link) as url:
                                 firebase.put(ppt+'/'+str(slideCount),str(elementCount)+"title", data = ssec["title"])
                                 elementCount += 1
                         tmp = k
-                    if not k % 10 == 0:
+                    if not tmp % 10 == 0:
                         f.write("---\n\n")
                         slideCount += 1
                         elementCount = 0
